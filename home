@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon site</title>
+  <title>Playa d'Antarctica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bienvenue sur mon site !</h1>
-  <p>Ça marche</p>
+  <div class="container">
+    <h1>Playa d'Antarctica</h1>
+    <p class="subtitle">musique perso · dilletante</p>
+
+    <ul class="projets">
+      <li><a href="projets/groupe-1/">Nom du Groupe 1</a></li>
+      <li><a href="projets/groupe-2/">Nom du Groupe 2</a></li>
+      <!-- Tu ajouteras d'autres projets ici plus tard -->
+    </ul>
+  </div>
 </body>
-</html
+</html>
