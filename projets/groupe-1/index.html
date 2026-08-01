@@ -1,1 +1,42 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「MÀU」INST. – Playa d'Antarctica</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="../../" class="back">← Playa d'Antarctica</a>
+    
+    <h1>「MÀU」INST.</h1>
+
+    <div class="covers">
+      <!-- Tu ajouteras les pochettes ici plus tard -->
+      <div class="cover">
+        <img src="cover.jpg" alt="Pochette" onclick="playTrack('morceau.mp3', 'Titre du morceau')">
+      </div>
+    </div>
+
+    <div class="player" id="player">
+      <p id="track-title"></p>
+      <audio id="audio" controls></audio>
+    </div>
+  </div>
+
+  <script>
+    function playTrack(file, title) {
+      const player = document.getElementById('player');
+      const audio = document.getElementById('audio');
+      const titleEl = document.getElementById('track-title');
+      
+      titleEl.textContent = title;
+      audio.src = file;
+      player.classList.add('active');
+      audio.play();
+    }
+  </script>
+</body>
+</html>
