@@ -1,0 +1,17 @@
+.tracks {
+  margin-top: 40px;
+}
+
+.track {
+  margin-bottom: 28px;
+}
+
+.track-title {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+audio {
+  width: 100%;
+}
