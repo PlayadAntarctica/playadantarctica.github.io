@@ -49,7 +49,7 @@ h1 {
 
 .track-cover {
   width: 80px;
-  height: 6p0x;
+  height: 80px;
   flex-shrink: 0;
   background: #222;
   overflow: hidden;
