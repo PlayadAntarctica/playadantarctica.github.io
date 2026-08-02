@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>「MÀU」INST.</title>
+  <title>「MÀU」INST. – Playa d'Antarctica</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -52,18 +52,4 @@
       const modal = document.getElementById('video-modal');
       const container = document.getElementById('video-container');
 
-      container.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-      modal.style.display = 'flex';
-    }
-
-    function closeVideo(event) {
-      if (event.target.id === 'video-modal' || event.target.classList.contains('close')) {
-        const modal = document.getElementById('video-modal');
-        const container = document.getElementById('video-container');
-        modal.style.display = 'none';
-        container.innerHTML = '';
-      }
-    }
-  </script>
-</body>
-</html>
+      container.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media"
