@@ -48,6 +48,7 @@ h1 {
 }
 
 .track-cover {
+  position: relative;
   width: 68px;
   height: 68px;
   flex-shrink: 0;
@@ -62,11 +63,33 @@ h1 {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: opacity 0.2s;
+  transition: opacity 0.25s;
 }
 
+/* Triangle play */
+.track-cover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid white;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+
+/* Hover */
 .track-cover:hover img {
-  opacity: 0.85;
+  opacity: 0.55;
+}
+
+.track-cover:hover::after {
+  opacity: 0.9;
 }
 
 .track-info {
