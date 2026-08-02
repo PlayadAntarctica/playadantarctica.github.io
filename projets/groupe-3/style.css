@@ -1,1 +1,14 @@
 
+.banner-link {
+  display: block;
+  margin: 0 auto 32px auto;
+  text-align: center;
+  max-width: 600px;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
