@@ -66,7 +66,7 @@ h1 {
   transition: opacity 0.25s;
 }
 
-/* Triangle play */
+/* Triangle play blanc */
 .track-cover::after {
   content: "";
   position: absolute;
@@ -83,7 +83,7 @@ h1 {
   pointer-events: none;
 }
 
-/* Hover */
+/* Au survol */
 .track-cover:hover img {
   opacity: 0.55;
 }
