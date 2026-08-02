@@ -16,9 +16,9 @@
 
       <!-- VACANCES -->
       <div class="track">
-        <a href="https://youtu.be/QAEz0lURVxU" target="_blank" class="track-cover">
+        <div class="track-cover" onclick="openVideo('QAEz0lURVxU', 'Vacances')">
           <img src="cover-vacances.jpg" alt="Vacances">
-        </a>
+        </div>
         <div class="track-info">
           <p class="track-title">Vacances</p>
           <audio controls src="vacances.mp3"></audio>
@@ -27,9 +27,9 @@
 
       <!-- ROOF JUMP -->
       <div class="track">
-        <a href="https://youtu.be/MvXPcKix530" target="_blank" class="track-cover">
+        <div class="track-cover" onclick="openVideo('MvXPcKix530', 'Roof Jump')">
           <img src="cover-roof-jump.jpg" alt="Roof Jump">
-        </a>
+        </div>
         <div class="track-info">
           <p class="track-title">Roof Jump</p>
           <audio controls src="roof-jump.mp3"></audio>
@@ -38,5 +38,35 @@
 
     </div>
   </div>
+
+  <!-- Modal vidéo -->
+  <div id="video-modal" class="modal" onclick="closeVideo(event)">
+    <div class="modal-content">
+      <span class="close" onclick="closeVideo(event)">&times;</span>
+      <div id="video-container"></div>
+      <p id="video-title"></p>
+    </div>
+  </div>
+
+  <script>
+    function openVideo(id, title) {
+      const modal = document.getElementById('video-modal');
+      const container = document.getElementById('video-container');
+      const titleEl = document.getElementById('video-title');
+
+      container.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+      titleEl.textContent = title;
+      modal.style.display = 'flex';
+    }
+
+    function closeVideo(event) {
+      if (event.target.id === 'video-modal' || event.target.classList.contains('close')) {
+        const modal = document.getElementById('video-modal');
+        const container = document.getElementById('video-container');
+        modal.style.display = 'none';
+        container.innerHTML = '';
+      }
+    }
+  </script>
 </body>
 </html>
