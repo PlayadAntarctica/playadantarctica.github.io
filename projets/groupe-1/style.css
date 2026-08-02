@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  max-width: 780px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -43,8 +43,8 @@ h1 {
 .track {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
 .track-cover {
@@ -54,6 +54,7 @@ h1 {
   background: #222;
   overflow: hidden;
   border-radius: 3px;
+  display: block;
 }
 
 .track-cover img {
@@ -61,6 +62,11 @@ h1 {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.2s;
+}
+
+.track-cover:hover img {
+  opacity: 0.85;
 }
 
 .track-info {
@@ -77,26 +83,4 @@ h1 {
 audio {
   width: 100%;
   height: 32px;
-}
-
-.track-video {
-  flex-shrink: 0;
-  width: 120px;
-  height: 68px;
-  border-radius: 3px;
-  overflow: hidden;
-  background: #000;
-  display: block;
-}
-
-.track-video img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.2s;
-}
-
-.track-video:hover img {
-  opacity: 0.85;
 }
