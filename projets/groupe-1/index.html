@@ -16,7 +16,7 @@
 
       <!-- VACANCES -->
       <div class="track">
-        <div class="track-cover" onclick="openVideo('vacances.mp4')" title="Lire la vidéo">
+        <div class="track-cover" onclick="openVideo('QAEz0lURVxU')" title="Lire la vidéo">
           <img src="cover-vacances.jpg" alt="Vacances">
         </div>
         <div class="track-info">
@@ -27,7 +27,7 @@
 
       <!-- ROOF JUMP -->
       <div class="track">
-        <div class="track-cover" onclick="openVideo('roof-jump.mp4')" title="Lire la vidéo">
+        <div class="track-cover" onclick="openVideo('MvXPcKix530')" title="Lire la vidéo">
           <img src="cover-roof-jump.jpg" alt="Roof Jump">
         </div>
         <div class="track-info">
@@ -48,16 +48,11 @@
   </div>
 
   <script>
-    function openVideo(file) {
+    function openVideo(id) {
       const modal = document.getElementById('video-modal');
       const container = document.getElementById('video-container');
 
-      container.innerHTML = `
-        <video controls autoplay>
-          <source src="${file}" type="video/mp4">
-          Votre navigateur ne supporte pas la lecture de vidéos.
-        </video>
-      `;
+      container.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
       modal.style.display = 'flex';
     }
 
