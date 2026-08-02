@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #111;
+  color: #eee;
+  line-height: 1.5;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* Login */
+#login {
+  text-align: center;
+  padding-top: 60px;
+}
+
+#password {
+  width: 100%;
+  max-width: 260px;
+  padding: 12px 14px;
+  margin: 16px 0;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #eee;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 24px;
+  background: #222;
+  border: 1px solid #444;
+  color: #eee;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2a2a2a;
+}
+
+.error {
+  color: #ff6b6b;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+/* Banner */
+.banner-link {
+  display: block;
+  margin: 0 auto 36px auto;
+  text-align: center;
+}
+
+.banner {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+/* Albums */
+.albums {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.album iframe {
+  border-radius: 4px;
+}
