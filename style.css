@@ -24,28 +24,86 @@ h1 {
   margin-bottom: 4px;
 }
 
-.subtitle {
+.back {
+  display: inline-block;
+  margin-bottom: 30px;
   color: #888;
-  font-size: 0.95rem;
-  margin-bottom: 40px;
-}
-
-.projets {
-  list-style: none;
-}
-
-.projets li {
-  margin-bottom: 12px;
-}
-
-.projets a {
-  color: #eee;
   text-decoration: none;
-  font-size: 1.15rem;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  font-size: 0.9rem;
 }
 
-.projets a:hover {
-  border-bottom-color: #666;
+.back:hover {
+  color: #ccc;
+}
+
+.tracks {
+  margin-top: 36px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.track-cover {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  background: #222;
+  overflow: hidden;
+  border-radius: 3px;
+  display: block;
+}
+
+.track-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s;
+}
+
+/* Icône play au centre */
+.track-cover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid white;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+
+/* Au survol */
+.track-cover:hover img {
+  opacity: 0.55;
+}
+
+.track-cover:hover::after {
+  opacity: 0.9;
+}
+
+.track-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.track-title {
+  font-size: 1.08rem;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+audio {
+  width: 100%;
+  height: 32px;
 }
