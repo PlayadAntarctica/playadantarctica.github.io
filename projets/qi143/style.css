@@ -179,3 +179,11 @@ audio {
   display: block;
   border-radius: 4px;
 }
+
+.gif {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border-radius: 4px;
+}
