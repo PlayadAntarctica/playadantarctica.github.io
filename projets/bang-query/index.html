@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nom de l’album – Playa d'Antarctica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="../../" class="banner-link">
+      <img src="../../banner.png" alt="Playa d'Antarctica" class="banner">
+    </a>
+
+    <h1>Nom de l’album</h1>
+    <p class="subtitle">16 morceaux</p>
+
+    <div class="album">
+      <img src="cover.jpg" alt="Pochette" class="album-cover">
+
+      <div class="player">
+        <p id="now-title">—</p>
+        <audio id="audio" preload="metadata"></audio>
+
+        <div class="controls">
+          <button type="button" id="prev">⏮</button>
+          <button type="button" id="play">▶</button>
+          <button type="button" id="next">⏭</button>
+        </div>
+
+        <div class="seek">
+          <span id="time">0:00</span>
+          <input type="range" id="bar" min="0" max="100" value="0" step="0.1">
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <ol class="playlist" id="playlist"></ol>
+  </div>
+
+  <script>
+    const tracks = [
+      { title: "Morceau 1", file: "01.mp3" },
+      { title: "Morceau 2", file: "02.mp3" },
+      { title: "Morceau 3", file: "03.mp3" },
+      { title: "Morceau 4", file: "04.mp3" },
+      { title: "Morceau 5", file: "05.mp3" },
+      { title: "Morceau 6", file: "06.mp3" },
+      { title: "Morceau 7", file: "07.mp3" },
+      { title: "Morceau 8", file: "08.mp3" },
+      { title: "Morceau 9", file: "09.mp3" },
+      { title: "Morceau 10", file: "10.mp3" },
+      { title: "Morceau 11", file: "11.mp3" },
+      { title: "Morceau 12", file: "12.mp3" },
+      { title: "Morceau 13", file: "13.mp3" },
+      { title: "Morceau 14", file: "14.mp3" },
+      { title: "Morceau 15", file: "15.mp3" },
+      { title: "Morceau 16", file: "16.mp3" }
+    ];
+
+    const audio = document.getElementById("audio");
+    const list = document.getElementById("playlist");
+    const nowTitle = document.getElementById("now-title");
+    const playBtn = document.getElementById("play");
+    const bar = document.getElementById("bar");
+    const timeEl = document.getElementById("time");
+    const durEl = document.getElementById("duration");
+    let index = 0;
+    let seeking = false;
+
+    function fmt(s) {
+      if (!isFinite(s)) return "0:00";
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60).toString().padStart(2, "0");
+      return m + ":" + sec;
+    }
+
+    function load(i, autoplay) {
+      index = i;
+      audio.src = tracks[i].file;
+      nowTitle.textContent = tracks[i].title;
+      document.querySelectorAll(".playlist li").forEach((li, n) => {
+        li.classList.toggle("active", n === i);
+      });
+      if (autoplay) audio.play();
+    }
+
+    tracks.forEach((t, i) => {
+      const li = document.createElement("li");
+      li.textContent = t.title;
+      li.addEventListener("click", () => load(i, true));
+      list.appendChild(li);
+    });
+
+    playBtn.addEventListener("click", () => {
+      if (!audio.src) load(0, true);
+      else if (audio.paused) audio.play();
+      else audio.pause();
+    });
+
+    document.getElementById("prev").addEventListener("click", () => {
+      load((index - 1 + tracks.length) % tracks.length, true);
+    });
+
+    document.getElementById("next").addEventListener("click", () => {
+      load((index + 1) % tracks.length, true);
+    });
+
+    audio.addEventListener("play", () => { playBtn.textContent = "⏸"; });
+    audio.addEventListener("pause", () => { playBtn.textContent = "▶"; });
+
+    audio.addEventListener("ended", () => {
+      if (index < tracks.length - 1) load(index + 1, true);
+      else playBtn.textContent = "▶";
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      if (!seeking && audio.duration) {
+        bar.value = (audio.currentTime / audio.duration) * 100;
+      }
+      timeEl.textContent = fmt(audio.currentTime);
+    });
+
+    audio.addEventListener("loadedmetadata", () => {
+      durEl.textContent = fmt(audio.duration);
+    });
+
+    bar.addEventListener("input", () => { seeking = true; });
+    bar.addEventListener("change", () => {
+      if (audio.duration) audio.currentTime = (bar.value / 100) * audio.duration;
+      seeking = false;
+    });
+
+    load(0, false);
+  </script>
+</body>
+</html>
